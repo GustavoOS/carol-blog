@@ -3,6 +3,12 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+import { getCollection } from 'astro:content';
+const allPosts = (await getCollection('blog')).toSorted(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 3);
+
 ---
 
 <!doctype html>
@@ -13,6 +19,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<body>
 		<Header />
 		<main>
+			<img width={1020} height={510} src="/images/pregnancy-light.png" alt="" />
 			<h1>Acolhendo sua jornada rumo à maternidade</h1>
 			<p>
 				Se você está tentando engravidar, viveu uma perda gestacional,
@@ -44,71 +51,104 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				>
 			</div>
 			<hr />
-			<h2>Por que escolher a terapia online?</h2>
-			<p>
-				A terapia online é um recurso seguro, eficaz e acessível, ideal
-				para mulheres que buscam acolhimento emocional em meio à rotina
-				corrida.
-			</p>
-			<h3 style="font-size: 1.125rem;line-height: 1.75rem;">
-				&#128274; Plataforma segura e criptografada (Microsoft Teams)
-			</h3>
-			<p>
-				Tudo o que você compartilha na sessão é protegido por
-				criptografia de ponta a ponta — isso significa que nenhuma
-				informação pode ser acessada por terceiros.
-			</p>
-			<p>
-				<b style="font-size: 1.125rem;line-height: 1.75rem;"
-					>&#128338; Duração das sessões:</b
-				> 50 minutos.
-			</p>
-			<p>
-				<b style="font-size: 1.125rem;line-height: 1.75rem;"
-					>&#127911; Pré-requisitos:</b
-				> fone de ouvido e conexão de internet estável.
-			</p>
+			<section>
+				<h2>Por que escolher a terapia online?</h2>
+				<p>
+					A terapia online é um recurso seguro, eficaz e acessível,
+					ideal para mulheres que buscam acolhimento emocional em meio
+					à rotina corrida.
+				</p>
+				<p><b style="font-size: 1.125rem;line-height: 1.75rem;">
+					&#128274; Plataforma segura e criptografada (Microsoft
+					Teams)</b> <br />
+					Tudo o que você compartilha na sessão é protegido por
+					criptografia de ponta a ponta — isso significa que nenhuma
+					informação pode ser acessada por terceiros.
+				</p>
+				<p>
+					<b style="font-size: 1.125rem;line-height: 1.75rem;"
+						>&#128338; Duração das sessões:</b
+					> 50 minutos.
+				</p>
+				<p>
+					<b style="font-size: 1.125rem;line-height: 1.75rem;"
+						>&#127911; Pré-requisitos:</b
+					> fone de ouvido e conexão de internet estável.
+				</p>
+			</section>
 			<hr />
-			<h2>Como posso te ajudar?</h2>
-			<p>A terapia online é indicada para você que:</p>
-			<ul>
-				<li>Está <b>tentando engravidar</b>, mas a ansiedade e o medo estão tomando conta</li>
-				<li>Viveu uma <b>perda gestacional</b> e carrega um luto que ninguém vê.</li>
-				<li>Está <b>grávida</b>, mas não consegue sentir tranquilidade</li>
-				<li>Tem diagnóstico de <b>trombofilia gestacional</b> ou <b>infertilidade</b> e se sente insegura</li>
-				<li>Está no <b>puerpério</b>, com sentimentos confusos e intensos</li>
-				<li>Sente culpa, medo, tristeza ou exaustão emocional</li>
-			</ul>
-			<p>
-				&#127793; A psicoterapia pode ser o seu espaço seguro de cuidado, expressão e ressignificação.
-			</p>
+			<section>
+				<h2>Como posso te ajudar?</h2>
+				<p>A terapia online é indicada para você que:</p>
+				<ul>
+					<li>
+						Está <b>tentando engravidar</b>, mas a ansiedade e o
+						medo estão tomando conta
+					</li>
+					<li>
+						Viveu uma <b>perda gestacional</b> e carrega um luto que
+						ninguém vê.
+					</li>
+					<li>
+						Está <b>grávida</b>, mas não consegue sentir
+						tranquilidade
+					</li>
+					<li>
+						Tem diagnóstico de <b>trombofilia gestacional</b> ou <b
+							>infertilidade</b
+						> e se sente insegura
+					</li>
+					<li>
+						Está no <b>puerpério</b>, com sentimentos confusos e
+						intensos
+					</li>
+					<li>Sente culpa, medo, tristeza ou exaustão emocional</li>
+				</ul>
+				<p>
+					&#127793; A psicoterapia pode ser o seu espaço seguro de
+					cuidado, expressão e ressignificação.
+				</p>
+			</section>
 			<hr />
-			<h2>Leia, acolha-se e inspire-se</h2>
-			<p>Aqui no blog, você encontra conteúdos pensados com carinho para te ajudar nessa fase</p>
-			<hr />
-			<h2>&#128214; Últimos artigos</h2>
-			<ul></ul>
-			<div style="display: flex; flex-direction: row; justify-content: center;">
-				<a href="/blog"
-				>Acesse o blog completo</a>
-			</div>
-			<hr />
-			<h2>
-				Você merece viver esse momento com mais leveza e apoio emocional
-			</h2>
-			<p>Cuidar de você agora é o primeiro passo para cuidar de quem você tanto deseja ter nos braços</p>
-			<div
-				style="display: flex; flex-direction: row; justify-content: center;"
-			>
-				<a
-					href="https://wa.me/message/JDCGIPVRCP6HO1"
-					class="button"
-					rel="noopener"
-					target="_blank"
+			<section>
+				<h2>Leia, acolha-se e inspire-se</h2>
+				<p>
+					Aqui no blog, você encontra conteúdos pensados com carinho
+					para te ajudar nessa fase.
+				</p>
+				<h3>&#128214; Últimos artigos</h3>
+				<ul>
+					 {allPosts.map((post: any) => <li><a href={`/blog/${post.id}/`}>{post.data.title}</a></li>)}
+				</ul>
+				<div
+					style="display: flex; flex-direction: row; justify-content: center;"
 				>
-					Agende sua sessão pelo WhatsApp</a
+					<a href="/blog">Acesse o blog completo</a>
+				</div>
+			</section>
+			<hr />
+			<section>
+				<h2>
+					Você merece viver esse momento com mais leveza e apoio
+					emocional
+				</h2>
+				<p>
+					Cuidar de você agora é o primeiro passo para cuidar de quem
+					você tanto deseja ter nos braços
+				</p>
+				<div
+					style="display: flex; flex-direction: row; justify-content: center;"
 				>
-			</div>
+					<a
+						href="https://wa.me/message/JDCGIPVRCP6HO1"
+						class="button"
+						rel="noopener"
+						target="_blank"
+					>
+						Agende sua sessão pelo WhatsApp</a
+					>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
