@@ -5,8 +5,8 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #7a3b54;
+	--accent-dark: #522637;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -153,3 +153,29 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+.button,
+.button:focus {
+  font-size: 17px;
+  padding: 10px 25px;
+  border-radius: 0.7rem;
+  background-image: linear-gradient(#a45d78, #7a3b54);
+  border: 2px solid rgb(50, 50, 50);
+  /* border-bottom: 5px solid rgb(50, 50, 50); */
+  box-shadow: 0px 1px 6px 0px #7a3b54;
+  transform: translate(0, -3px);
+  cursor: pointer;
+  transition: 0.2s;
+  transition-timing-function: linear;
+  color: #fff;
+  text-decoration: none;
+}
+.button:hover {
+  color: #f7e0e9;
+}
+
+.button:active {
+  transform: translate(0, 0);
+  border-bottom: 2px solid rgb(50, 50, 50);
+}
+
