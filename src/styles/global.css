@@ -3,7 +3,12 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+@import "tailwindcss";
 
+@theme {
+	--color-accent: #7a3b54;
+	--color-accent-700: #522637;
+}
 :root {
 	--accent: #7a3b54;
 	--accent-dark: #522637;
@@ -78,12 +83,6 @@ h5 {
 strong,
 b {
 	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
 }
 p {
 	margin-bottom: 1em;
