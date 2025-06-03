@@ -4,12 +4,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-import { getCollection } from 'astro:content';
-import { Image } from "astro:assets";
-const allPosts = (await getCollection('blog')).toSorted(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-).slice(0, 3);
-
+import { getCollection } from "astro:content";
+import { Image } from "@imagekit/react";
+const allPosts = (await getCollection("blog"))
+	.toSorted((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
 ---
 
 <!doctype html>
@@ -20,7 +19,13 @@ const allPosts = (await getCollection('blog')).toSorted(
 	<body>
 		<Header />
 		<main>
-			<Image width={1020} height={510} src="/images/pregnancy-light.png" alt="" />
+			<Image
+				width={1020}
+				height={510}
+				src="https://carol-blog.pages.dev/images/pregnancy-light.png"
+				alt=""
+				urlEndpoint="https://ik.imagekit.io/ou8k2bjxa"
+			/>
 			<h1>Acolhendo sua jornada rumo à maternidade</h1>
 			<p>
 				Se você está tentando engravidar, viveu uma perda gestacional,
@@ -59,12 +64,15 @@ const allPosts = (await getCollection('blog')).toSorted(
 					ideal para mulheres que buscam acolhimento emocional em meio
 					à rotina corrida.
 				</p>
-				<p><b style="font-size: 1.125rem;line-height: 1.75rem;">
-					&#128274; Plataforma segura e criptografada (Microsoft
-					Teams)</b> <br />
-					Tudo o que você compartilha na sessão é protegido por
-					criptografia de ponta a ponta — isso significa que nenhuma
-					informação pode ser acessada por terceiros.
+				<p>
+					<b style="font-size: 1.125rem;line-height: 1.75rem;">
+						&#128274; Plataforma segura e criptografada (Microsoft
+						Teams)</b
+					>
+					<br />
+					Tudo o que você compartilha na sessão é protegido por criptografia
+					de ponta a ponta — isso significa que nenhuma informação pode
+					ser acessada por terceiros.
 				</p>
 				<p>
 					<b style="font-size: 1.125rem;line-height: 1.75rem;"
@@ -119,12 +127,22 @@ const allPosts = (await getCollection('blog')).toSorted(
 				</p>
 				<h3>&#128214; Últimos artigos</h3>
 				<ul>
-					 {allPosts.map((post: any) => <li><a href={`/blog/${post.id}/`}>{post.data.title}</a></li>)}
+					{
+						allPosts.map((post: any) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									{post.data.title}
+								</a>
+							</li>
+						))
+					}
 				</ul>
 				<div
 					style="display: flex; flex-direction: row; justify-content: center;"
 				>
-					<a href="/blog" class="text-accent hover:text-accent-700">Acesse o blog completo</a>
+					<a href="/blog" class="text-accent hover:text-accent-700"
+						>Acesse o blog completo</a
+					>
 				</div>
 			</section>
 			<hr />
