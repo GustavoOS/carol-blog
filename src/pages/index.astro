@@ -44,17 +44,15 @@ const allPosts = (await getCollection("blog"))
 				&#128172; Atendimentos 100% on-line, com escuta qualificada,
 				sensível e técnica, para mulheres do mundo todo.
 			</p>
-			<div
-				style="display: flex; flex-direction: row; justify-content: center;"
-			>
+			<div class="flex flex-row justify-center mb-8">
 				<a
 					href="https://wa.me/message/JDCGIPVRCP6HO1"
 					class="button"
 					rel="noopener"
 					target="_blank"
 				>
-					Agende sua sessão pelo WhatsApp</a
-				>
+					Agende sua sessão pelo WhatsApp
+				</a>
 			</div>
 			<hr />
 			<section>
@@ -126,20 +124,23 @@ const allPosts = (await getCollection("blog"))
 					para te ajudar nessa fase.
 				</p>
 				<h3>&#128214; Últimos artigos</h3>
-				<ul>
+				<ul class="list-disc pl-5">
+					{
+						allPosts.length === 0 && (
+							<li>Nenhum artigo encontrado</li>
+						)
+					}
 					{
 						allPosts.map((post: any) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
+								<a href={`/blog/${post.id}/`} class="text-accent hover:text-accent-700">
 									{post.data.title}
 								</a>
 							</li>
 						))
 					}
 				</ul>
-				<div
-					style="display: flex; flex-direction: row; justify-content: center;"
-				>
+				<div class="flex flex-row justify-center py-4">
 					<a href="/blog" class="text-accent hover:text-accent-700"
 						>Acesse o blog completo</a
 					>
