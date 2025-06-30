@@ -89,7 +89,7 @@ const posts = (await getCollection("blog")).sort(
 		</style>
 	</head>
 	<body>
-		<SidebarLayout client:load>
+		<SidebarLayout client:load currentPath={Astro.url.pathname}>
 			<main>
 				<section>
 					<ul>
