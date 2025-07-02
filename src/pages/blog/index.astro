@@ -1,13 +1,10 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import { SidebarLayout } from "@/layouts/sidebar";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -89,36 +86,33 @@ const posts = (await getCollection("blog")).sort(
 		</style>
 	</head>
 	<body>
-		<SidebarLayout client:load currentPath={Astro.url.pathname}>
-			<main>
-				<section>
-					<ul>
-						{
-							posts.map((post) => (
-								<li>
-									<a href={`/blog/${post.id}/`}>
-										{post.data.heroImage && (
-											<Image
-												width={720}
-												height={360}
-												src={post.data.heroImage}
-												alt=""
-											/>
-										)}
-										<h4 class="title">{post.data.title}</h4>
-										<p class="date">
-											<FormattedDate
-												date={post.data.pubDate}
-											/>
-										</p>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</section>
-			</main>
+		<SidebarLayout client:load currentPath={Astro.url.pathname} title={{ title: "Blog" }}>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									{post.data.heroImage && (
+										<Image
+											width={720}
+											height={360}
+											src={post.data.heroImage}
+											alt=""
+										/>
+									)}
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate
+											date={post.data.pubDate}
+										/>
+									</p>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
 		</SidebarLayout>
-		<Footer />
 	</body>
 </html>

@@ -13,10 +13,10 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarMenuButton,
-  SidebarRail,
+  SidebarMenuButton
 } from "@/components/ui/sidebar"
 import { Instagram } from "@/components/ui/instagram"
+
 
 // This is sample data.
 const data = {
@@ -42,16 +42,11 @@ const data = {
       title: "Terapia",
       url: "#",
       icon: Brain,
-      isActive: true,
       items: [
         {
           title: "Presencial",
-          url: "#",
+          url: "/therapy",
         },
-        {
-          title: "Online",
-          url: "#",
-        }
       ],
     },
     {
@@ -61,11 +56,7 @@ const data = {
       items: [
         {
           title: "Grupo Terapêutico",
-          url: "#",
-        },
-        {
-          title: "Grupo de Desafios",
-          url: "#",
+          url: "/group",
         },
       ],
     }
@@ -78,14 +69,15 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 
 export function AppSidebar({ ...props }: AppSidebarProps) {
   const projects = data.projects.map(item => ({...item, isActive: props.currentPath === item.url}));
+  const navMain = data.navMain.map(group => ({...group, items: group.items.map(item => ({...item, isActive: props.currentPath === item.url}))}));
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
-      <SidebarHeader className="text-accent-700">
+    <Sidebar collapsible="offcanvas" {...props} style={{ borderImage: "linear-gradient(to bottom, #b08d57,#f9d976,#d4af37,#b08d57,#f9d976,#d4af37 ) 0.5" }}>
+      <SidebarHeader className="text-wine-700 vibes text-3xl mt-2">
         Carolina Souza
       </SidebarHeader>
       <SidebarContent>
         <NavProjects projects={projects} />
-        <NavMain items={data.navMain} />
+        <NavMain items={navMain} />
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenuButton asChild>
@@ -95,7 +87,7 @@ export function AppSidebar({ ...props }: AppSidebarProps) {
               </a>
             </SidebarMenuButton>
       </SidebarFooter>
-      <SidebarRail />
+      {/* <SidebarRail className=""/> */}
     </Sidebar>
   )
 }
