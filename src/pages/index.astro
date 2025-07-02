@@ -1,11 +1,11 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Image } from "astro:assets";
 
 import { getCollection } from "astro:content";
+import { SidebarLayout } from "@/layouts/sidebar";
 const allPosts = (await getCollection("blog"))
 	.toSorted((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
@@ -17,15 +17,14 @@ const allPosts = (await getCollection("blog"))
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
-		<main>
+		<SidebarLayout client:load currentPath={Astro.url.pathname} title={{title: "Início"}}>
+			<h1>Acolhendo sua jornada rumo à maternidade</h1>
 			<Image
 				width={1020}
 				height={510}
 				src="/images/optimized/pregnancy-light.avif"
 				alt="Uma mulher grávida com um sorriso suave, com a mão na barriga, em um ambiente tranquilo e acolhedor. Ela está sentada em uma cadeira confortável, com luz suave iluminando o espaço ao seu redor. A imagem transmite uma sensação de paz e esperança."
 			/>
-			<h1>Acolhendo sua jornada rumo à maternidade</h1>
 			<p>
 				Se você está tentando engravidar, viveu uma perda gestacional,
 				está grávida ou no puerpério — saiba que não está sozinha.
@@ -168,7 +167,6 @@ const allPosts = (await getCollection("blog"))
 					>
 				</div>
 			</section>
-		</main>
-		<Footer />
+		</SidebarLayout>
 	</body>
 </html>
