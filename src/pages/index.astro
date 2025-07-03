@@ -14,7 +14,7 @@ const allPosts = (await getCollection("blog"))
 <!doctype html>
 <html lang="pt-BR">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image="/images/optimized/pregnancy-light.avif"/>
 	</head>
 	<body>
 		<SidebarLayout client:load currentPath={Astro.url.pathname} title={{title: "Início"}}>
