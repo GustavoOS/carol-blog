@@ -4,7 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { SidebarLayout } from './sidebar';
 
-type Props = CollectionEntry<'blog'>['data'] & {category?: string, subTitle?: string};
+type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, category, subTitle } = Astro.props;
 ---
@@ -55,7 +55,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, subTitle 
 						{subTitle && <h2 style={{color: "#71717a",
 							fontSize: "1.5rem"
 						}}>{subTitle}</h2>}
-						<div class="date">
+						{pubDate && <div class="date">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
@@ -64,7 +64,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, subTitle 
 									</div>
 								)
 							}
-						</div>						
+						</div>}						
 						<hr />
 					</div>
 
