@@ -14,10 +14,18 @@ const allPosts = (await getCollection("blog"))
 <!doctype html>
 <html lang="pt-BR">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image="/images/optimized/pregnancy-light.avif"/>
+		<BaseHead
+			title={SITE_TITLE}
+			description={SITE_DESCRIPTION}
+			image="/images/optimized/pregnancy-light.avif"
+		/>
 	</head>
 	<body>
-		<SidebarLayout client:load currentPath={Astro.url.pathname} title={{title: "Início"}}>
+		<SidebarLayout
+			client:load
+			currentPath={Astro.url.pathname}
+			title={{ title: "Início" }}
+		>
 			<h1>Acolhendo sua jornada rumo à maternidade</h1>
 			<Image
 				width={1020}
@@ -39,8 +47,9 @@ const allPosts = (await getCollection("blog"))
 				vida com medo, ansiedade e insegurança.
 			</p>
 			<p>
-				&#128172; Atendimentos 100% on-line, com escuta qualificada,
-				sensível e técnica, para mulheres do mundo todo.
+				&#128172; Atendimentos online e presencial em São José dos
+				Campos, com escuta qualificada, sensível e técnica, para
+				mulheres do mundo todo.
 			</p>
 			<div class="flex flex-row justify-center mb-8">
 				<a
@@ -55,65 +64,59 @@ const allPosts = (await getCollection("blog"))
 			</div>
 			<hr />
 			<section>
-				<h2>Por que escolher a terapia online?</h2>
+				<h2>O processo terapêutico</h2>
 				<p>
-					A terapia online é um recurso seguro, eficaz e acessível,
-					ideal para mulheres que buscam acolhimento emocional em meio
-					à rotina corrida.
+					A jornada terapêutica é um espaço construído entre você e eu
+					— com respeito, escuta e cuidado.
 				</p>
 				<p>
-					<b style="font-size: 1.125rem;line-height: 1.75rem;">
-						&#128274; Plataforma segura e criptografada (Microsoft
-						Teams)</b
-					>
-					<br />
-					Tudo o que você compartilha na sessão é protegido por criptografia
-					de ponta a ponta — isso significa que nenhuma informação pode
-					ser acessada por terceiros.
+					Se você está tentando engravidar, já passou por perdas
+					gestacionais, está vivendo a gravidez ou o puerpério e sente
+					que as emoções estão difíceis de lidar, a terapia pode ser o
+					seu ponto de apoio.
 				</p>
 				<p>
-					<b style="font-size: 1.125rem;line-height: 1.75rem;"
-						>&#128338; Duração das sessões:</b
-					> 50 minutos.
+					Mesmo que esse caminho seja cheio de medos, incertezas e
+					dores, é possível ressignificar a experiência, fortalecer a
+					esperança e reencontrar leveza.
 				</p>
 				<p>
-					<b style="font-size: 1.125rem;line-height: 1.75rem;"
-						>&#127911; Pré-requisitos:</b
-					> fone de ouvido e conexão de internet estável.
+					Aqui, você encontrará um ambiente seguro para falar sobre
+					aquilo que talvez você não tenha conseguido dizer em voz
+					alta até agora.
 				</p>
-			</section>
-			<hr />
-			<section class="flex flex-col py-2 gap-y-2">
-				<h2>Como posso te ajudar?</h2>
-				<p>A terapia online é indicada para você que:</p>
+				<p>
+					A sua história importa, e é ela que vai guiar o nosso
+					processo.
+				</p>
+				<p>
+					Trabalho com a Terapia Cognitivo-Comportamental (TCC),
+					adaptando cada sessão às suas necessidades, para que você se
+					sinta acolhida e, aos poucos, mais preparada para lidar com
+					o que sente.
+				</p>
+				<p>Alguns temas que costumam aparecer no consultório:</p>
 				<ul class="list-disc pl-5">
-					<li>
-						Está <b>tentando engravidar</b>, mas a ansiedade e o
-						medo estão tomando conta
-					</li>
-					<li>
-						Viveu uma <b>perda gestacional</b> e carrega um luto que
-						ninguém vê.
-					</li>
-					<li>
-						Está <b>grávida</b>, mas não consegue sentir
-						tranquilidade
-					</li>
-					<li>
-						Tem diagnóstico de <b>trombofilia gestacional</b> ou <b
-							>infertilidade</b
-						> e se sente insegura
-					</li>
-					<li>
-						Está no <b>puerpério</b>, com sentimentos confusos e
-						intensos
-					</li>
-					<li>Sente culpa, medo, tristeza ou exaustão emocional</li>
+					<li>Ansiedade nas tentativas ou durante a gestação</li>
+					<li>Medo de uma nova perda</li>
+					<li>Luto gestacional ou neonatal</li>
+					<li>Culpa, insegurança e sensação de fracasso</li>
+					<li>Relação com o corpo e com o próprio valor</li>
+					<li>⁠Conflitos no relacionamento conjugal</li>
+					<li>Medo de não conseguir ser mãe</li>
+					<li>⁠Preparação emocional para a maternidade</li>
 				</ul>
-				<p>
-					&#127793; A psicoterapia pode ser o seu espaço seguro de
-					cuidado, expressão e ressignificação.
-				</p>
+				<div class="flex flex-row justify-center my-8">
+				<a
+					href="https://wa.me/message/JDCGIPVRCP6HO1"
+					class="button"
+					rel="noopener"
+					target="_blank"
+					onclick="gtag('event', 'conversion', {'send_to': 'AW-11020075250/6ULICNLmlOkaEPKB5IYp'})"
+				>
+					Agende sua sessão pelo WhatsApp
+				</a>
+			</div>
 			</section>
 			<hr />
 			<section>
@@ -124,15 +127,14 @@ const allPosts = (await getCollection("blog"))
 				</p>
 				<h3>&#128214; Últimos artigos</h3>
 				<ul class="list-disc pl-5">
-					{
-						allPosts.length === 0 && (
-							<li>Nenhum artigo encontrado</li>
-						)
-					}
+					{allPosts.length === 0 && <li>Nenhum artigo encontrado</li>}
 					{
 						allPosts.map((post: any) => (
 							<li>
-								<a href={`/blog/${post.id}/`} class="text-accent hover:text-accent-700">
+								<a
+									href={`/blog/${post.id}/`}
+									class="text-accent hover:text-accent-700 hover:underline"
+								>
 									{post.data.title}
 								</a>
 							</li>
@@ -140,35 +142,12 @@ const allPosts = (await getCollection("blog"))
 					}
 				</ul>
 				<div class="flex flex-row justify-center py-4">
-					<a href="/blog" class="text-accent hover:text-accent-700"
+					<a href="/blog" class="text-accent hover:text-accent-700 hover:underline"
 						>Acesse o blog completo</a
 					>
 				</div>
 			</section>
-			<hr />
-			<section>
-				<h2>
-					Você merece viver esse momento com mais leveza e apoio
-					emocional
-				</h2>
-				<p>
-					Cuidar de você agora é o primeiro passo para cuidar de quem
-					você tanto deseja ter nos braços
-				</p>
-				<div
-					style="display: flex; flex-direction: row; justify-content: center;"
-				>
-					<a
-						href="https://wa.me/message/JDCGIPVRCP6HO1"
-						class="button"
-						rel="noopener"
-						target="_blank"
-						onclick="gtag('event', 'conversion', {'send_to': 'AW-11020075250/6ULICNLmlOkaEPKB5IYp'})"
-					>
-						Agende sua sessão pelo WhatsApp</a
-					>
-				</div>
-			</section>
+			
 		</SidebarLayout>
 	</body>
 </html>

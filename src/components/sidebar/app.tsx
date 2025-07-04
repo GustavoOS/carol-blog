@@ -44,9 +44,13 @@ const data = {
       icon: Brain,
       items: [
         {
-          title: "Presencial",
-          url: "/therapy",
+          title: "Online",
+          url: "/terapia/online",
         },
+        {
+          title: "Presencial",
+          url: "/terapia/presencial",
+        }
       ],
     },
     {
